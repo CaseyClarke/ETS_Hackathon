@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Item Upload</title>
+    <script src="OperatorForm.js"></script>
+
+    <style>
+        .container {
+          display: flex; /* Use flexbox */
+        }
+        .div1, .div2 {
+          flex: 1; /* Each div takes equal space */
+          padding: 20px;
+          border: 1px solid #000;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+          }
+        .no {
+            background-color: red;
+            color: white;
+        }
+    </style>
+    <div class="container">
+        <div class="div1">
+            <h2>Lost and Found Operator Item Upload</h2>
+            <form id="myForm">
+                <label>Item Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea><br><br>
+                <label>Image:</label>
+                <input type="file" id="Image" name="Image" accept="image/*">
+            </form>
+        </div>
+    </div>
+</head>
+<body>
+    
+</body>
+</html>
