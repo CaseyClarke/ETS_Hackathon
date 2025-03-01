@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lost Item Report</title>
     <!-- script to turn form into JSON MIGHT need editing-->
-    <script src="ItemForm.js"></script>
+    
     <style>
         .container {
-          display: flex; /* Use flexbox */
+            display: flex;
+            /* Use flexbox */
         }
-        .div1, .div2 {
-          flex: 1; /* Each div takes equal space */
-          padding: 20px;
-          border: 1px solid #000;
+
+        .div1,
+        .div2 {
+            flex: 1;
+            /* Each div takes equal space */
+            padding: 20px;
+            border: 1px solid #000;
         }
 
         .buttons {
             display: flex;
-            gap: 10px; /* Space between buttons */
+            gap: 10px;
+            /* Space between buttons */
         }
+
         button {
             padding: 5px 10px;
             font-size: 16px;
@@ -27,142 +34,108 @@
             border: none;
             border-radius: 5px;
         }
+
         .yes {
             background-color: green;
             color: white;
-          }
+        }
+
         .no {
             background-color: red;
             color: white;
         }
-      </style>
+    </style>
 </head>
 
 <body>
     <div class="container">
-    <div class="div1">
-        <h2>Lost Item Report Form</h2>
-        <form id = "myForm">
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" required><br><br>
-            
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" required><br><br>
-            <!---Phone and email------>
-            
-              <label for="contact_method">Preferred Method of Contact:</label>
-              <select id="contact_method" name="contact_method" required>
-                  <option value="phone">Phone Number</option>
-                  <option value="email">Email</option>
-              </select><br><br>
-          
-              <div id="phoneField">
-                  <label for="phone">Phone Number:</label>
-                  <input type="tel" id="phone" name="phone" required><br><br>
-              </div>
-          
-              <div id="emailField" style="display: none;">
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email"><br><br>
-              </div>
-          
-              <p id="errorMessage" style="color: red; display: none;">Please provide a valid phone number or email.</p>
-          
- 
-            <!---Phone and email------>
-            <label for="lost_date">Date item was lost:</label>
-            <input type="date" id="lost_date" name="lost_date" required><br><br>
-        
-            <label for="transport_type">Type of Transportation:</label>
-            <select id="transport_type" name="transport_type" required>
-            <option value="Bus">Bus</option>
-            <option value="LRT">LRT</option>
-            </select><br><br>
-            
-            <label for="description">Item Description/details :</label><br>
-            <textarea id="description" name="description" style="width: 300px;height: 40px;" required></textarea><br><br>
-        
-            <label for="Image">Upload a photo of the item:</label><br>
-            <input type="file" id="Image" name="Image" accept="image/*"><br><br>
-        
-            <button  type="submit" style="background-color: lightgrey;">Submit</button>
-        </form>
-    </div>
-    <div class="div2">
-        <h2>Items on the system matching description</h2>
-        <label>Is this your item?</label>
-        <div class="buttons">
-            <button class="yes" onclick="handleYes()">Yes</button>
-            <button class="no" onclick="handleNo()">No</button>
+        <div class="div1">
+            <h2>Lost Item Report Form</h2>
+            <form id="myForm">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required /><br /><br />
+
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required /><br /><br />
+                <!---Phone and email------>
+
+                <label for="contact_method">Preferred Method of Contact:</label>
+                <select id="contact_method" name="contact_method" required>
+                    <option value="phone">Phone Number</option>
+                    <option value="email">Email</option>
+                </select><br /><br />
+
+                <div id="phoneField">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required /><br /><br />
+                </div>
+
+                <div id="emailField" style="display: none">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" /><br /><br />
+                </div>
+
+                <p id="errorMessage" style="color: red; display: none">
+                    Please provide a valid phone number or email.
+                </p>
+
+                <!---Phone and email------>
+                <label for="lost_date">Date item was lost:</label>
+                <input type="date" id="lost_date" name="lost_date" required /><br /><br />
+
+                <label for="transport_type">Type of Transportation:</label>
+                <select id="transport_type" name="transport_type" required>
+                    <option value="Bus">Bus</option>
+                    <option value="LRT">LRT</option>
+                </select><br /><br />
+
+                <label for="description">Item Description/details :</label><br />
+                <textarea id="description" name="description" style="width: 300px; height: 40px"
+                    required></textarea><br /><br />
+
+                <label for="Image">Upload a photo of the item:</label><br />
+                <input type="file" id="Image" name="Image" accept="image/*" /><br /><br />
+
+                <button type="submit" style="background-color: lightgrey">
+                    Submit
+                </button>
+            </form>
         </div>
-    </div>
+        <div class="div2">
+            <!--document.getElementById('hiddenItem').style.display = 'block';-->
+            
+            <div id="hiddenItem" style="display: none;">
+                <h2>Items on the system matching description</h2>
+                <img id="itemPicture" src="sampleLostItems/ashkan-forouzani-zAEZ2MOeJ9M-unsplash.jpg" alt="Sample Lost Item" width="250" height="400"><br>
+                <label>Is this your item?</label>
+                <div class="buttons">
+                    <button class="yes" onclick="handleYes()">Yes</button>
+                    <button class="no" onclick="handleNo()">No</button>
+                </div><br>
+                <label id="itemInfo"></label>
+                <script>
+
+                    function handleNo() {
+                        // returns the next index of the likness comparison
+                    }
+
+                                images2 = {
+                        "https://raw.githubusercontent.com/CaseyClarke/ETS_Hackathon/main/sampleLostItems/ashkan-forouzani-zAEZ2MOeJ9M-unsplash.jpg" : "Pick up available at Southgate Station 9AM-5PM Mon-Fri",
+                        "https://raw.githubusercontent.com/CaseyClarke/ETS_Hackathon/main/sampleLostItems/simon-daoudi-2wFoa040m8g-unsplash.jpg" : "Pick up available at Central Station 9AM-5PM Mon-Fri",
+                                    "https://raw.githubusercontent.com/CaseyClarke/ETS_Hackathon/main/sampleLostItems/quokkabottles-ader57qmvh0-unsplash.jpg" :"Pick up available at Mckernan Station 9AM-5PM Mon-Fri",
+                        
+                    }
+
+
+                    function handleYes() {
+                        document.getElementById("itemInfo").innerHTML = images2[document.getElementById("itemPicture").src];
+                    }
+                </script>
+    
+            </div>
     </div>
 </body>
 
-<script>
-    document.getElementById("myForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission
+<script src="ItemForm.js" defer></script>
 
-    const formData = new FormData(event.target);
-    const file = formData.get("Image"); // Get the File object
-
-    if (!file) {
-        console.error("No file selected");
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.readAsDataURL(file); // Convert file to base64
-    reader.onloadend = async function () {
-        const base64String = reader.result.split(",")[1]; // Extract base64 without prefix
-        console.log("Base64 Encoded Image:", base64String); // Debugging
-
-        const result = await analyzeImage(base64String);
-        console.log(result);
-    };
-});
-
-
-    async function analyzeImage(imageBase64) {
-    const apiKey = "AIzaSyDMZw--owedvpkXazvfD4Y5faCGZ4ykVdE"
-    const url = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
-
-    const requestBody = {
-        requests: [
-            {
-                image: {
-                    content: imageBase64
-                },
-                features: [
-                    {
-                        type: "LABEL_DETECTION", // You can also use TEXT_DETECTION, FACE_DETECTION, etc.
-                        maxResults: 10
-                    }
-                ]
-            }
-        ]
-    };
-
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(requestBody)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        return result.responses[0];
-    } catch (error) {
-        console.error("Error analyzing image:", error);
-        return null;
-    }
-}
-
-</script>
 </html>
