@@ -41,10 +41,40 @@
             });
           });
     </script>
+    <style>
+        .container {
+          display: flex; /* Use flexbox */
+        }
+        .div1, .div2 {
+          flex: 1; /* Each div takes equal space */
+          padding: 20px;
+          border: 1px solid #000;
+        }
 
+        .buttons {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+          }
+        .no {
+            background-color: red;
+            color: white;
+        }
+      </style>
 </head>
 <body>
-    <div align="left">
+    <div class="container">
+    <div class="div1">
         <h2>Lost Item Report Form</h2>
         <form id="myForm">
             <label for="first_name">First Name:</label>
@@ -122,8 +152,17 @@
             <label for="Image">Upload a photo of the item:</label><br>
             <input type="file" id="Image" name="Image" accept="image/*"><br><br>
         
-            <button type="submit">Submit</button>
+            <button type="submit" style="background-color: lightgrey;">Submit</button>
         </form>
+    </div>
+    <div class="div2">
+        <h2>Items on the system matching description</h2>
+        <label>Is this your item?</label>
+        <div class="buttons">
+            <button class="yes" onclick="handleYes()">Yes</button>
+            <button class="no" onclick="handleNo()">No</button>
+        </div>
+    </div>
     </div>
 </body>
 </html>
