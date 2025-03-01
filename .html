@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parameters Display</title>
+    <script>
+        function displayParams() {
+            const params = new URLSearchParams(window.location.search);
+            const outputDiv = document.getElementById("output");
+            
+            if (params.toString() === "") {
+                outputDiv.innerHTML = "No URL parameters found.";
+                return;
+            }
+            
+            let html = "<h2>URL Parameters:</h2><ul>";
+            params.forEach((value, key) => {
+                html += `<li><strong>${key}:</strong> ${value}</li>`;
+            });
+            html += "</ul>";
+            
+            outputDiv.innerHTML = html;
+        }
+    </script>
+</head>
+<body onload="displayParams()">
+    <h1>Display URL Parameters</h1>
+    <div id="output"></div>
+</body>
+</html>

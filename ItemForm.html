@@ -37,18 +37,19 @@
         }
       </style>
 </head>
+
 <body>
     <div class="container">
     <div class="div1">
         <h2>Lost Item Report Form</h2>
-        <form id="myForm">
+        <form id = "myForm">
             <label for="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name" required><br><br>
             
             <label for="last_name">Last Name:</label>
             <input type="text" id="last_name" name="last_name" required><br><br>
             <!---Phone and email------>
-            <form id="contactForm">
+            
               <label for="contact_method">Preferred Method of Contact:</label>
               <select id="contact_method" name="contact_method" required>
                   <option value="phone">Phone Number</option>
@@ -66,44 +67,11 @@
               </div>
           
               <p id="errorMessage" style="color: red; display: none;">Please provide a valid phone number or email.</p>
-          </form>
-          <script>
-              document.getElementById('contact_method').addEventListener('change', function() {
-                  const phoneField = document.getElementById('phoneField');
-                  const emailField = document.getElementById('emailField');
-            
-                  if (this.value === 'phone') {
-                      phoneField.style.display = 'block';
-                      emailField.style.display = 'none';
-                      document.getElementById('email').removeAttribute('required');
-                      document.getElementById('phone').setAttribute('required', true);
-                  } else if (this.value === 'email') {
-                      emailField.style.display = 'block';
-                      phoneField.style.display = 'none';
-                      document.getElementById('phone').removeAttribute('required');
-                      document.getElementById('email').setAttribute('required', true);
-                  }
-              });
           
-              document.getElementById('contactForm').addEventListener('submit', function(event) {
-                  const contactMethod = document.getElementById('contact_method').value;
-                  const phone = document.getElementById('phone').value.trim();
-                  const email = document.getElementById('email').value.trim();
-                  const errorMessage = document.getElementById('errorMessage');
-            
-                  if ((contactMethod === 'phone' && !phone) || (contactMethod === 'email' && !email)) {
-                      errorMessage.style.display = 'block';
-                      event.preventDefault(); // Prevent form submission
-                  } else {
-                      errorMessage.style.display = 'none';
-                  }
-              });
-            </script>  
+ 
             <!---Phone and email------>
             <label for="lost_date">Date item was lost:</label>
             <input type="date" id="lost_date" name="lost_date" required><br><br>
-        
-            
         
             <label for="transport_type">Type of Transportation:</label>
             <select id="transport_type" name="transport_type" required>
@@ -117,7 +85,7 @@
             <label for="Image">Upload a photo of the item:</label><br>
             <input type="file" id="Image" name="Image" accept="image/*"><br><br>
         
-            <button type="submit" style="background-color: lightgrey;">Submit</button>
+            <button  type="submit" style="background-color: lightgrey;">Submit</button>
         </form>
     </div>
     <div class="div2">
@@ -130,4 +98,15 @@
     </div>
     </div>
 </body>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form from actually submitting
+        
+        const formData = new FormData(event.target);
+        const formObject = Object.fromEntries(formData.entries());
+
+        console.log("Forum Submission:", formObject);
+    });
+</script>
 </html>
