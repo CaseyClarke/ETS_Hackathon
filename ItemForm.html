@@ -6,40 +6,7 @@
     <title>Lost Item Report</title>
     <!-- script to turn form into JSON MIGHT need editing-->
     <script>
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
-          
-            // Gather form data
-            const formData = new FormData(event.target);
-          
-            // Convert FormData to a plain object
-            const formObject = {};
-            formData.forEach((value, key) => {
-              formObject[key] = value;
-            });
-          
-            // Convert the object to JSON
-            const jsonData = JSON.stringify(formObject);
-          
-            // Send the JSON data using fetch
-            fetch('/submit-endpoint', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: jsonData,
-            })
-            .then(response => response.json())
-            .then(data => {
-              console.log('Success:', data);
-              // Handle success (e.g., show a success message)
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              // Handle error (e.g., show an error message)
-            });
-          });
+ 
     </script>
     <style>
         .container {
