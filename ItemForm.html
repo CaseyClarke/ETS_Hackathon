@@ -100,13 +100,69 @@
 </body>
 
 <script>
-    document.getElementById("myForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form from actually submitting
-        
-        const formData = new FormData(event.target);
-        const formObject = Object.fromEntries(formData.entries());
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
 
-        console.log("Forum Submission:", formObject);
-    });
+    const formData = new FormData(event.target);
+    const file = formData.get("Image"); // Get the File object
+
+    if (!file) {
+        console.error("No file selected");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file); // Convert file to base64
+    reader.onloadend = async function () {
+        const base64String = reader.result.split(",")[1]; // Extract base64 without prefix
+        console.log("Base64 Encoded Image:", base64String); // Debugging
+
+        const result = await analyzeImage(base64String);
+        console.log(result);
+    };
+});
+
+
+    async function analyzeImage(imageBase64) {
+    const apiKey = "AIzaSyDMZw--owedvpkXazvfD4Y5faCGZ4ykVdE"
+    const url = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
+
+    const requestBody = {
+        requests: [
+            {
+                image: {
+                    content: imageBase64
+                },
+                features: [
+                    {
+                        type: "LABEL_DETECTION", // You can also use TEXT_DETECTION, FACE_DETECTION, etc.
+                        maxResults: 10
+                    }
+                ]
+            }
+        ]
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        return result.responses[0];
+    } catch (error) {
+        console.error("Error analyzing image:", error);
+        return null;
+    }
+}
+
 </script>
 </html>
