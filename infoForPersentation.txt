@@ -1,0 +1,11 @@
+ETS Call dosent work weekends
+
+ETS form automation:
+    whenever lost item empolyee takes picture and writes were it was found
+
+    machine comparisson to give items, time it was found,
+    gives image of item and ask if match,
+
+    if yes give time and location for pickup, further proof verification done by empolyee
+
+    
