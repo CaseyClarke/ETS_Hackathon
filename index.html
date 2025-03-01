@@ -1,177 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="https://www.tfaforms.com/dist/form-builder/5.0.0/wforms-layout.css?v=1740851853" rel="stylesheet" type="text/css">
-    <link href="https://www.tfaforms.com/dist/form-builder/5.0.0/wforms-jsonly.css?v=1740851853" rel="stylesheet" title="" type="text/css">
-    <link href="https://www.tfaforms.com/uploads/themes/theme-52913.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Item Report</title>
 </head>
-
-
-
 <body>
-
-  <a name="stack75329"></a>
-
-  <div class="column">
-    <div class="module">
-      <h2>
-        Inquiry Form
-      </h2>
-      <!-- FORM: HEAD SECTION -->
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta name="referrer" content="no-referrer-when-downgrade">
-      <!-- THIS SCRIPT NEEDS TO BE LOADED FIRST BEFORE wforms.js -->
-      <script type="text/javascript" data-for="FA__DOMContentLoadedEventDispatch"
-        src="https://www.tfaforms.com/js/FA__DOMContentLoadedEventDispatcher.js" defer=""></script>
-      <script type="text/javascript">
-        document.addEventListener("FA__DOMContentLoaded", function () {
-          const FORM_TIME_START = Math.floor((new Date).getTime() / 1000);
-          let formElement = document.getElementById("tfa_0");
-          if (null === formElement) {
-            formElement = document.getElementById("0");
-          }
-          let appendJsTimerElement = function () {
-            let formTimeDiff = Math.floor((new Date).getTime() / 1000) - FORM_TIME_START;
-            let cumulatedTimeElement = document.getElementById("tfa_dbCumulatedTime");
-            if (null !== cumulatedTimeElement) {
-              let cumulatedTime = parseInt(cumulatedTimeElement.value);
-              if (null !== cumulatedTime && cumulatedTime > 0) {
-                formTimeDiff += cumulatedTime;
-              }
-            }
-            let jsTimeInput = document.createElement("input");
-            jsTimeInput.setAttribute("type", "hidden");
-            jsTimeInput.setAttribute("value", formTimeDiff.toString());
-            jsTimeInput.setAttribute("name", "tfa_dbElapsedJsTime");
-            jsTimeInput.setAttribute("id", "tfa_dbElapsedJsTime");
-            jsTimeInput.setAttribute("autocomplete", "off");
-            if (null !== formElement) {
-              formElement.appendChild(jsTimeInput);
-            }
-          };
-          if (null !== formElement) {
-            if (formElement.addEventListener) {
-              formElement.addEventListener('submit', appendJsTimerElement, false);
-            } else if (formElement.attachEvent) {
-              formElement.attachEvent('onsubmit', appendJsTimerElement);
-            }
-          }
-        });
-      </script>
-
-      <link href="https://www.tfaforms.com/dist/form-builder/5.0.0/wforms-layout.css?v=1740851853" rel="stylesheet"
-        type="text/css">
-
-      <link href="https://www.tfaforms.com/uploads/themes/theme-52913.css" rel="stylesheet" type="text/css">
-      <link href="https://www.tfaforms.com/dist/form-builder/5.0.0/wforms-jsonly.css?v=1740851853" rel="stylesheet"
-        title="" type="text/css">
-      <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/wforms.js?v=1740851853"></script>
-      <script type="text/javascript">
-        if (wFORMS.behaviors.prefill) wFORMS.behaviors.prefill.skip = true;
-      </script>
-      <link rel="stylesheet" type="text/css" href="https://www.tfaforms.com/css/kalendae.css">
-      <script type="text/javascript" src="https://www.tfaforms.com/js/kalendae/kalendae.standalone.min.js"></script>
-      <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/wforms_calendar.js"></script>
-      <script type="text/javascript"
-        src="https://www.tfaforms.com/wForms/3.11/js/localization-en_US.js?v=1740851853"></script>
-
-      <!-- FORM: BODY SECTION -->
-      <div class="wFormContainer">
-        <div class="wFormHeader"></div>
-        <div class="">
-          <div class="wForm" id="382614-WRPR" data-language="en_US" dir="ltr">
-            <div class="codesection" id="code-382614"></div>
-            <form method="post" action="https://www.tfaforms.com/api_v2/rest/workflow/processor"
-              class="hintsBelow labelsAbove" id="382614" enctype="multipart/form-data">
-              <fieldset id="tfa_1" class="section">
-                <legend id="tfa_1-L">Provide the following</legend>
-                <div class="oneField field-container-D    " id="tfa_2-D">
-                  <label id="tfa_2-L" class="label preField reqMark" for="tfa_2">First Name</label><br>
-                  <div class="inputWrapper"><input aria-required="true" type="text" id="tfa_2" name="tfa_2" value=""
-                      title="First Name" class="required"></div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_3-D">
-                  <label id="tfa_3-L" class="label preField reqMark" for="tfa_3">Last Name</label><br>
-                  <div class="inputWrapper"><input aria-required="true" type="text" id="tfa_3" name="tfa_3" value=""
-                      title="Last Name" class="required"></div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_4-D">
-                  <label id="tfa_4-L" class="label preField reqMark" for="tfa_4">Contact Phone Number</label><br>
-                  <div class="inputWrapper"><input aria-required="true" type="text" id="tfa_4" name="tfa_4" value=""
-                      placeholder="555-555-5555" title="Contact Phone Number" class="required placeholder"></div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_873-D">
-                  <label id="tfa_873-L" class="label preField reqMark" for="tfa_873">Date item was lost</label><br>
-                  <div class="inputWrapper"><input aria-required="true" type="text" id="tfa_873" name="tfa_873" value=""
-                      autocomplete="off" max="+|0_Day{}" title="Date item was lost" class="validate-datecal required">
-                  </div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_5-D">
-                  <label id="tfa_5-L" class="label preField reqMark" for="tfa_5">Email</label><br>
-                  <div class="inputWrapper"><input aria-required="true" type="text" id="tfa_5" name="tfa_5" value=""
-                      title="Email" class="validate-email required"></div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_870-D">
-                  <label id="tfa_870-L" class="label preField reqMark" for="tfa_870">Location where item was lost (Bus
-                    route, bus number, station, and so on)</label><br>
-                  <div class="inputWrapper"><input aria-required="true" type="text" id="tfa_870" name="tfa_870" value=""
-                      title="Location where item was lost (Bus route, bus number, station, and so on)" class="required">
-                  </div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_875-D">
-                  <label id="tfa_875-L" class="label preField " for="tfa_875">Type of Transportation</label><br>
-                  <div class="inputWrapper"><select id="tfa_875" name="tfa_875" title="Type of Transportation" class="">
-                      <option value="">Please select...</option>
-                      <option value="tfa_881" id="tfa_881" class="">Dedicated Accessible Transit Service (DATS)</option>
-                      <option value="tfa_876" id="tfa_876" class="">Edmonton Transit (Bus)</option>
-                      <option value="tfa_877" id="tfa_877" class="">Edmonton Transit (LRT)</option>
-                      <option value="tfa_878" id="tfa_878" class=""> On Demand Transit</option>
-                      <option value="tfa_879" id="tfa_879" class="">Spruce Grove Transit</option>
-                    </select></div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_871-D">
-                  <label id="tfa_871-L" class="label preField reqMark" for="tfa_871">Item description. The more details
-                    you provide, the easier it is for us to find it (brand, model, material, colour, pattern, contents,
-                    and so on).</label><br>
-                  <div class="inputWrapper"><textarea aria-required="true" id="tfa_871" name="tfa_871"
-                      placeholder="For example, a black, leather X brand wallet. Contains cash and credit cards."
-                      title="Item description. The more details you provide, the easier it is for us to find it (brand, model, material, colour, pattern, contents, and so on)."
-                      class="required placeholder"></textarea></div>
-                </div>
-                <div class="htmlSection" id="tfa_874">
-                  <div class="htmlContent" id="tfa_874-HTML">For lost cell phones, please provide as much detail as
-                    possible including the manufacturer, carrier, and brand name of your mobile or smartphone as well as
-                    the OS version.</div>
-                </div>
-                <div class="oneField field-container-D    " id="tfa_880-D">
-                  <label id="tfa_880-L" class="label preField " for="tfa_880">Add an attachment (photo of
-                    item).</label><br>
-                  <div class="inputWrapper"><input type="file" id="tfa_880" name="tfa_880" size=""
-                      title="Add an attachment (photo of item)." class=""></div>
-                </div>
-              </fieldset>
-              <div class="actions" id="382614-A" data-contentid="submit_button"><input type="submit" data-label="Submit"
-                  class="primaryAction" id="submit_button" value="Submit"></div>
-              <div style="clear:both"></div>
-              <input type="hidden" value="316-018f855c0241f874648febdd9d761137" name="tfa_dbCounters"
-                id="tfa_dbCounters" autocomplete="off"><input type="hidden" value="382614" name="tfa_dbFormId"
-                id="tfa_dbFormId"><input type="hidden" value="" name="tfa_dbResponseId" id="tfa_dbResponseId"><input
-                type="hidden" value="efd4018a72f12c02ebf23dbb375b9eff" name="tfa_dbControl" id="tfa_dbControl"><input
-                type="hidden" value="" name="tfa_dbWorkflowSessionUuid" id="tfa_dbWorkflowSessionUuid"><input
-                type="hidden" value="1740851853" name="tfa_dbTimeStarted" id="tfa_dbTimeStarted"
-                autocomplete="off"><input type="hidden" value="23" name="tfa_dbVersionId" id="tfa_dbVersionId"><input
-                type="hidden" value="" name="tfa_switchedoff" id="tfa_switchedoff">
-            </form>
-          </div>
-        </div>
-        <div class="wFormFooter">
-          <p style="display: none;"><br></p>
-        </div>
-        <p style="display: none;">
-        </p>
-      </div>
-
-    </div>
-  </div>
-
-
-
+    <h2>Lost Item Report Form</h2>
+    <form action="submit_lost_item.php" method="post" enctype="multipart/form-data">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br><br>
+        
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+        
+        <label for="phone">Contact Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        
+        <label for="lost_date">Date item was lost:</label>
+        <input type="date" id="lost_date" name="lost_date" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="location">Location where item was lost:</label>
+        <input type="text" id="location" name="location" required><br><br>
+        
+        <label for="transport_type">Type of Transportation:</label>
+        <input type="text" id="transport_type" name="transport_type" required><br><br>
+        
+        <label for="description">Item Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea><br><br>
+        
+        <label for="phone_details">Details for lost cell phones:</label>
+        <textarea id="phone_details" name="phone_details" rows="3"></textarea><br><br>
+        
+        <label for="attachment">Upload a photo of the item:</label>
+        <input type="file" id="attachment" name="attachment" accept="image/*"><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
 </body>
+</html>
